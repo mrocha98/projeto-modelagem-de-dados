@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+  db:
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_USER: pg
+      POSTGRES_PASSWORD: pg123
+      POSTGRES_DB: clinica
+    ports: [5432:5432]
