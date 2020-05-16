@@ -50,4 +50,4 @@ Depois de conversar com o cliente, foram levantadas as seguintes informações:
 - O doutor também mencionou que, para fins estatísticos, seria interessante anotar quais exercícios foram feitos em cada sessão, porém é importante ter em mente que nem toda sessão tem exercícios, como por exemplo a primeira, onde só é feita uma entrevista com o paciente.
 - Quanto aos exercícios:
   - Possuem um nome, obrigatório;
-  - Podem utilizar um equipamento, quem também possuem um nome, obrigatoriamente;
+  - Podem utilizar um equipamento, quem também possui um nome, obrigatoriamente;
