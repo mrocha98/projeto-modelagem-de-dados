@@ -6,7 +6,7 @@ Projeto final da disciplina de Arquitetura e Modelagem de Dados - BD FATEC 2020
 
 ## Introdução
 
-![Dr. Hans Chucrute](./Assets/dr-hans-chucrute.png)
+![Dr. Hans Chucrute](Assets/dr-hans-chucrute.png)
 
 O famoso Dr. Hans Chucrute contratou uma empresa de desenvolvimento de software para automatizar os processos administrativos da sua clínica de fisioterapia.
 
@@ -24,6 +24,7 @@ Depois de conversar com o cliente, foram levantadas as seguintes informações:
   - Sexo, obrigatório;
   - Telefones para contato, pelo menos um;
   - Endereço, opcional;
+    - Não foram especificados os campos do endereço;
 - Todo paciente possui um diagnóstico inicial, mas o doutor prefere usar o termo [anamnese](<https://pt.wikipedia.org/wiki/Anamnese_(sa%C3%BAde)>), pois soa mais profissional.
 - Para os fisioterapeutas, é preciso guardar:
   - Data de admissão, obrigatória;
@@ -36,6 +37,7 @@ Depois de conversar com o cliente, foram levantadas as seguintes informações:
   - Uma descrição, opcional;
   - Um valor sugerido de mensalidade, obrigatório;
 - Um paciente pode se matricular em quantos planos quiser, assim como um fisioterapeuta pode atender em qualquer plano;
+- É necessário guardar a data da matrícula e se ela está ativa ou não;
 - Para cada matrícula, será gerada uma mensalidade, que deve conter:
   - O valor solicitado, obrigatório;
   - O valor pago, obrigatório;
@@ -48,6 +50,6 @@ Depois de conversar com o cliente, foram levantadas as seguintes informações:
   - Se o paciente compareceu, obrigatório;
   - Um comentário opcional;
 - O doutor também mencionou que, para fins estatísticos, seria interessante anotar quais exercícios foram feitos em cada sessão, porém é importante ter em mente que nem toda sessão tem exercícios, como por exemplo a primeira, onde só é feita uma entrevista com o paciente.
-- Quanto aos exercícios:
-  - Possuem um nome, obrigatório;
-  - Podem utilizar um equipamento, quem também possui um nome, obrigatoriamente;
+- Quanto ao exercício:
+  - Possui um nome, obrigatório;
+  - Pode utilizar um equipamento, que também possui um nome, obrigatoriamente;
