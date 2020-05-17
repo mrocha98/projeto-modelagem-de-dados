@@ -53,3 +53,11 @@ Depois de conversar com o cliente, foram levantadas as seguintes informações:
 - Quanto ao exercício:
   - Possui um nome, obrigatório;
   - Pode utilizar um equipamento, que também possui um nome, obrigatoriamente;
+
+## Modelo Conceitual
+
+![Modelo Conceitual](Assets/modelo-conceitual.jpg)
+
+## Modelo Lógico
+
+![Modelo Lógico](Assets/modelo-logico.jpg)
