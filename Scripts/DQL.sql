@@ -63,3 +63,37 @@ inner join cidade cid		on endr.cidade_id = cid.id and cid.nome = 'São José dos
 inner join uf				on cid.uf_id = uf.id and uf.sigla = 'SP';
 
 
+-- Mensalidades que não foram pagas
+select usr.nome as paciente, plan.nome as plano, mens.valor_solicitado, date(mens.data) as data
+from usuario usr
+inner join paciente pac		on usr.id = pac.id_usuario
+inner join matricula mat	on pac.id = mat.id_paciente 
+inner join plano plan 		on plan.id= mat.id_plano
+inner join mensalidade mens	on mens.id_matricula = mat.id and mens.paciente_pagou = false;
+
+
+-- Mensalidades da paciente Lorena Braga
+select date(mens.data) as data, mens.valor_solicitado, mens.paciente_pagou 
+from mensalidade mens
+inner join matricula mat 	on mens.id_matricula = mat.id
+inner join paciente pac 	on mat.id_paciente = pac.id 
+inner join usuario usr 		on usr.id = pac.id_usuario and usr.nome = 'Lorena Braga';
+
+
+-- Todos exercícios
+select exr.nome as exercicio, eqp.nome as equipamento
+from exercicio exr
+left join equipamento eqp on exr.id_equipamento = eqp.id
+order by exr.nome ASC; 
+
+
+-- Quantidade de exercícios por equipamento
+select eqp.nome as equipamento, count(exr.id) as qtd
+from exercicio exr
+inner join equipamento eqp on exr.id_equipamento = eqp.id
+group by eqp.nome
+order by eqp.nome ASC; 
+
+
+
+

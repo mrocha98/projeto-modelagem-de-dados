@@ -114,3 +114,55 @@ create table if not exists Matricula (
 	constraint UK_Matricula unique (id_paciente, id_plano)
 );
 
+create table if not exists Mensalidade (
+	id uuid not null,
+	id_matricula uuid not null,
+	data timestamptz not null,
+	valor_solicitado numeric (5, 2) not null,
+	paciente_pagou bool not null,
+	constraint PK_Mensalidade primary key (id),
+	constraint FK_Mensalidade_Matricula foreign key (id_matricula) references Matricula (id),
+	constraint UK_Mensalidade unique (id_matricula, data)
+);
+
+
+create table if not exists Equipamento (
+	id uuid not null,
+	nome varchar(255) not null,
+	constraint PK_Equipamento primary key (id),
+	constraint UK_Equipamento unique (nome)
+);
+
+create table if not exists Exercicio (
+	id uuid not null,
+	nome varchar(255) not null,
+	id_equipamento uuid null,
+	constraint PK_Exercicio primary key (id),
+	constraint RK_Exercicio_Equipamento foreign key (id_equipamento) references Equipamento (id),
+	constraint UK_Exercicio unique (nome)
+);
+
+create table if not exists Terapia (
+	id uuid not null,
+	id_matricula uuid not null,
+	id_fisioterapeuta uuid not null,
+	data timestamptz not null,
+	paciente_compareceu bool not null,
+	observacao text null,
+	constraint PK_Terapia primary key (id),
+	constraint FK_Terapia_Matricula foreign key (id_matricula) references Matricula (id),
+	constraint FK_Terapia_Fisioterapeuta foreign key (id_fisioterapeuta) references Fisioterapeuta (id),
+	constraint UK_Terapia unique (id_matricula, id_fisioterapeuta, data)
+);
+
+create table if not exists Exercicio_Por_Terapia (
+	id uuid not null,
+	id_exercicio uuid not null,
+	id_terapia uuid not null,
+	constraint PK_Exercicio_Por_Terapia primary key (id),
+	constraint FK_Exercicio_Por_Terapia_Exercicio foreign key (id_exercicio) references Exercicio (id),
+	constraint FK_Exercicio_Por_Terapia_Terapia foreign key (id_terapia) references Terapia (id),
+	constraint UK_Exercicio_Por_Terapia unique (id_exercicio, id_terapia)
+);
+
+

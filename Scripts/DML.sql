@@ -286,6 +286,14 @@ values (
 	(select salario from fisioterapeuta where id = '1f0f2915-670e-4861-b048-d57062515905'),
 	'2020-05-01 00:00:00'
 );
+insert into Pagamento(id, id_fisioterapeuta, valor, data)
+values (
+	'83627a3a-a29c-4fa4-a70c-636553fe3d9b',
+	'1f0f2915-670e-4861-b048-d57062515905',
+	(select salario from fisioterapeuta where id = '1f0f2915-670e-4861-b048-d57062515905'),
+	'2020-06-01'
+);
+
 
 commit;
 
@@ -460,9 +468,161 @@ values (
 commit;
 
 
+-- Mensalidades
+insert into Mensalidade (id, id_matricula, data, valor_solicitado, paciente_pagou)
+values (
+	'999d0242-4454-4327-a72d-90c94defd01e',
+	'd7bd2afc-823c-4c89-b6fd-4995bfb31c2f',
+	'2020-06-01',
+	100,
+	false
+);
+insert into Mensalidade (id, id_matricula, data, valor_solicitado, paciente_pagou)
+values (
+	'0df182b1-da42-48ef-9588-8e11cd804b3f',
+	'd7bd2afc-823c-4c89-b6fd-4995bfb31c2f',
+	'2020-05-01',
+	100,
+	true
+);
+insert into Mensalidade (id, id_matricula, data, valor_solicitado, paciente_pagou)
+values (
+	'e9fdcc6d-0ca3-4468-91da-611323bbd3e4',
+	'b14720c2-2ed7-4913-94b5-c7ec5991f71f',
+	'2020-04-01',
+	100,
+	true
+);
+insert into Mensalidade (id, id_matricula, data, valor_solicitado, paciente_pagou)
+values (
+	'04508d37-6069-431e-bae0-020a5230183a',
+	'af826af1-28bb-4d7b-b213-e89af9c4c002',
+	'2020-04-29',
+	110.9,
+	true
+);
+insert into Mensalidade (id, id_matricula, data, valor_solicitado, paciente_pagou)
+values (
+	'2d5f1d5f-00e1-4c4a-9d70-068b8db1e086',
+	'7272df62-5774-4cb1-a127-eef5477086af',
+	'2020-05-15',
+	100,
+	true
+);
+insert into Mensalidade (id, id_matricula, data, valor_solicitado, paciente_pagou)
+values (
+	'79c4faf6-7b0e-4276-b161-ff91257ea18d',
+	'7272df62-5774-4cb1-a127-eef5477086af',
+	'2020-04-13',
+	100,
+	true
+);
+insert into Mensalidade (id, id_matricula, data, valor_solicitado, paciente_pagou)
+values (
+	'aa39f8b6-f68c-4958-8751-99d6a2101faf',
+	'af1a40ae-01ef-4637-b937-febf092e752d',
+	'2019-12-05',
+	101.99,
+	true
+);
+insert into Mensalidade (id, id_matricula, data, valor_solicitado, paciente_pagou)
+values (
+	'3fb34603-6261-40f3-b4e5-a6c0032c84ad',
+	'bdefb38e-b582-49b8-a359-f52b0046f68e',
+	'2019-11-09',
+	100,
+	true
+);
+insert into Mensalidade (id, id_matricula, data, valor_solicitado, paciente_pagou)
+values (
+	'385bb504-b870-4e7b-a992-cd506be5a543',
+	'284201c7-dc06-40f6-832a-adc446495a4a',
+	'2019-10-18',
+	100,
+	true
+);
+insert into Mensalidade (id, id_matricula, data, valor_solicitado, paciente_pagou)
+values (
+	'c914fd1d-8078-4a54-9212-7f09170f4c0b',
+	'25a58563-59f9-49db-9048-de93721b31a1',
+	'2020-01-07',
+	100,
+	false
+);
+
+commit;
 
 
+-- Equipamentos
+insert into Equipamento (nome, id)
+values (
+	'Halter',
+	'4d99cb14-c636-4b30-82cf-42081586e285'
+);
+insert into Equipamento (nome, id)
+values (
+	'Bola Suíça',
+	'56d3e55f-d473-4417-b731-39fa1c7d1317'
+);
+insert into Equipamento (nome, id)
+values (
+	'Extensor elástico para pernas',
+	'f5a226b0-276b-4f05-8ef8-3de5dfb48a12'
+);
+insert into Equipamento (nome, id)
+values (
+	'Bola de aperto',
+	'a41d851c-f76b-44c8-81dc-cefe83a8c971'
+);
+
+commit;
 
 
+-- Exercícios c/ equipamento
+insert into Exercicio (id, id_equipamento, nome) 
+values (
+	'f504a0b2-3637-4311-9b81-e39f7c6c4213',
+	'4d99cb14-c636-4b30-82cf-42081586e285',
+	'Elevação Lateral'
+);
+insert into Exercicio (id, id_equipamento, nome) 
+values (
+	'9469dc41-d3ff-46a8-8994-ddd97e1dfb83',
+	'4d99cb14-c636-4b30-82cf-42081586e285',
+	'Elevação Frontal'
+);
+insert into Exercicio (id, id_equipamento, nome) 
+values (
+	'4fb00767-f6e2-4da4-a0be-3768b1dc4ed0',
+	'f5a226b0-276b-4f05-8ef8-3de5dfb48a12',
+	'Remada Baixa'
+);
+insert into Exercicio (id, id_equipamento, nome) 
+values (
+	'8d3a945e-90cd-4107-aacd-8ea859b0a7c3',
+	'56d3e55f-d473-4417-b731-39fa1c7d1317',
+	'Abdominal com bola'
+);
+insert into Exercicio (id, id_equipamento, nome) 
+values (
+	'390fbae2-817d-4a7c-bb39-ea609ff1b123',
+	'56d3e55f-d473-4417-b731-39fa1c7d1317',
+	'Prancha lateral com bola'
+);
+insert into Exercicio (id, id_equipamento, nome) 
+values (
+	'e0b8bb57-413e-46a9-9099-548c96e63368',
+	'56d3e55f-d473-4417-b731-39fa1c7d1317',
+	'Elefante'
+);
+
+commit;
+
+
+-- Exercícios s/ equipamento
+insert into Exercicio (id, nome) values ('d124e561-9bdb-473e-8705-0593bf4baa48','Agachamento');
+insert into Exercicio (id, nome) values ('f50fdfc5-a0f4-4e44-a89a-8263c7c8dfed','Avanços');
+insert into Exercicio (id, nome) values ('faa137c9-c16c-43dc-98dc-542926de2d6c','Diamond kicks');
+insert into Exercicio (id, nome) values ('2aa4aeb3-7108-4a83-aabb-770a948a79db','Chute para trás');
 
 
