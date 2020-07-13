@@ -84,12 +84,13 @@ create table if not exists Paciente (
 create table if not exists Pagamento (
 	id uuid not null,
 	id_fisioterapeuta uuid not null,
-	valor numeric(7, 2) not null,
 	data timestamptz not null,
+	valor numeric(7, 2) not null,
 	constraint PK_Pagamento primary key (id),
 	constraint FK_Pagamento_Fisioterapeuta foreign key (id_fisioterapeuta) references Fisioterapeuta(id),
-	constraint UK_Pagamento unique (id_fisioterapeuta, valor, data)
+	constraint UK_Pagamento unique (id_fisioterapeuta, data)
 );
+
 
 create table if not exists Plano (
 	id uuid not null,
@@ -164,5 +165,3 @@ create table if not exists Exercicio_Por_Terapia (
 	constraint FK_Exercicio_Por_Terapia_Terapia foreign key (id_terapia) references Terapia (id),
 	constraint UK_Exercicio_Por_Terapia unique (id_exercicio, id_terapia)
 );
-
-

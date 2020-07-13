@@ -11,19 +11,19 @@ insert into UF(id, sigla) values ('f7bea9a3-cc91-45c9-b3d1-18b171e53fe4','RS');
 commit;
 
 -- Cidade
-insert into Cidade(id, UF_id, nome) 
+insert into Cidade(id, UF_id, nome)
 values (
 	'b7adead7-1153-416d-8f12-446de10452c7',
 	'ee366f94-1fd7-4ad2-b4f5-9f8d34bd5e21', --SP
 	'São José dos Campos'
 );
-insert into Cidade(id, UF_id, nome) 
+insert into Cidade(id, UF_id, nome)
 values (
 	'df9e4070-39dd-4195-9158-82bc583176b8',
 	'ee366f94-1fd7-4ad2-b4f5-9f8d34bd5e21',
 	'Campinas'
 );
-insert into Cidade(id, UF_id, nome) 
+insert into Cidade(id, UF_id, nome)
 values (
 	'fee5c7e2-fd2c-4d47-b929-37d1d4a925be',
 	'ee366f94-1fd7-4ad2-b4f5-9f8d34bd5e21',
@@ -579,37 +579,37 @@ commit;
 
 
 -- Exercícios c/ equipamento
-insert into Exercicio (id, id_equipamento, nome) 
+insert into Exercicio (id, id_equipamento, nome)
 values (
 	'f504a0b2-3637-4311-9b81-e39f7c6c4213',
 	'4d99cb14-c636-4b30-82cf-42081586e285',
 	'Elevação Lateral'
 );
-insert into Exercicio (id, id_equipamento, nome) 
+insert into Exercicio (id, id_equipamento, nome)
 values (
 	'9469dc41-d3ff-46a8-8994-ddd97e1dfb83',
 	'4d99cb14-c636-4b30-82cf-42081586e285',
 	'Elevação Frontal'
 );
-insert into Exercicio (id, id_equipamento, nome) 
+insert into Exercicio (id, id_equipamento, nome)
 values (
 	'4fb00767-f6e2-4da4-a0be-3768b1dc4ed0',
 	'f5a226b0-276b-4f05-8ef8-3de5dfb48a12',
 	'Remada Baixa'
 );
-insert into Exercicio (id, id_equipamento, nome) 
+insert into Exercicio (id, id_equipamento, nome)
 values (
 	'8d3a945e-90cd-4107-aacd-8ea859b0a7c3',
 	'56d3e55f-d473-4417-b731-39fa1c7d1317',
 	'Abdominal com bola'
 );
-insert into Exercicio (id, id_equipamento, nome) 
+insert into Exercicio (id, id_equipamento, nome)
 values (
 	'390fbae2-817d-4a7c-bb39-ea609ff1b123',
 	'56d3e55f-d473-4417-b731-39fa1c7d1317',
 	'Prancha lateral com bola'
 );
-insert into Exercicio (id, id_equipamento, nome) 
+insert into Exercicio (id, id_equipamento, nome)
 values (
 	'e0b8bb57-413e-46a9-9099-548c96e63368',
 	'56d3e55f-d473-4417-b731-39fa1c7d1317',
@@ -626,3 +626,96 @@ insert into Exercicio (id, nome) values ('faa137c9-c16c-43dc-98dc-542926de2d6c',
 insert into Exercicio (id, nome) values ('2aa4aeb3-7108-4a83-aabb-770a948a79db','Chute para trás');
 
 
+-- Terapias
+insert into Terapia (id, id_matricula, id_fisioterapeuta, data, paciente_compareceu)
+values (
+	'309e2dd4-4f53-4d80-908c-a37396fdf2e4',
+	'b14720c2-2ed7-4913-94b5-c7ec5991f71f', 'b7f3716e-bcce-4119-bea2-ea443be9a6cf',
+	'2020-05-01 07:30', true
+);
+insert into Terapia (id, id_matricula, id_fisioterapeuta, data, paciente_compareceu)
+values (
+	'6b543db7-cf3e-4457-b648-d37153452154',
+	'af1a40ae-01ef-4637-b937-febf092e752d', 'b7f3716e-bcce-4119-bea2-ea443be9a6cf',
+	'2020-05-01 14:00', true
+);
+insert into Terapia (id, id_matricula, id_fisioterapeuta, data, paciente_compareceu)
+values (
+	'ad0edb0e-fae0-450f-8de6-ee396b784067',
+	'7272df62-5774-4cb1-a127-eef5477086af', '1f0f2915-670e-4861-b048-d57062515905',
+	'2020-05-01 14:00', false
+);
+insert into Terapia (id, id_matricula, id_fisioterapeuta, data, paciente_compareceu)
+values (
+	'31e7f321-075f-43a1-bd9a-206890e59360',
+	'284201c7-dc06-40f6-832a-adc446495a4a', 'b7f3716e-bcce-4119-bea2-ea443be9a6cf',
+	'2020-05-02 09:25', true
+);
+insert into Terapia (id, id_matricula, id_fisioterapeuta, data, paciente_compareceu)
+values (
+	'555de9ac-f8b0-441b-869a-3e4ffddcff66',
+	'bdefb38e-b582-49b8-a359-f52b0046f68e', '1f0f2915-670e-4861-b048-d57062515905',
+	'2020-05-02 16:30', true
+);
+insert into Terapia (id, id_matricula, id_fisioterapeuta, data, paciente_compareceu)
+values (
+	'c044e118-bb6f-49d9-9bbe-140ec6a75e7b',
+	'af826af1-28bb-4d7b-b213-e89af9c4c002', 'b7f3716e-bcce-4119-bea2-ea443be9a6cf',
+	'2020-05-03 07:30', true
+);
+insert into Terapia (id, id_matricula, id_fisioterapeuta, data, paciente_compareceu)
+values (
+	'58899a3d-5771-42bc-9735-a2b40dc75cf8',
+	'b14720c2-2ed7-4913-94b5-c7ec5991f71f', '1f0f2915-670e-4861-b048-d57062515905',
+	'2020-05-04 09:45', false
+);
+insert into Terapia (id, id_matricula, id_fisioterapeuta, data, paciente_compareceu)
+values (
+	'9f32e870-773e-4634-86b2-08fa699dd61b',
+	'd7bd2afc-823c-4c89-b6fd-4995bfb31c2f', 'b7f3716e-bcce-4119-bea2-ea443be9a6cf',
+	'2020-05-04 16:00', true
+);
+insert into Terapia (id, id_matricula, id_fisioterapeuta, data, paciente_compareceu)
+values (
+	'752999b8-30bc-4c71-acd5-677357827845',
+	'd77cac12-d5a6-4f8d-86fb-3f65f8acd075', 'b7f3716e-bcce-4119-bea2-ea443be9a6cf',
+	'2020-05-05 17:30', true
+);
+insert into Terapia (id, id_matricula, id_fisioterapeuta, data, paciente_compareceu)
+values (
+	'3832c247-2b92-4431-aae2-8066a8be6a4b',
+	'15a90aec-492c-4cdd-afe3-d68227aa148e', 'b7f3716e-bcce-4119-bea2-ea443be9a6cf',
+	'2020-05-05 17:30', false
+);
+insert into Terapia (id, id_matricula, id_fisioterapeuta, data, paciente_compareceu)
+values (
+	'2d04da71-5113-4a37-99ad-9c59cef9624b',
+	'25a58563-59f9-49db-9048-de93721b31a1', 'b7f3716e-bcce-4119-bea2-ea443be9a6cf',
+	'2020-05-05 18:30', true
+);
+insert into Terapia (id, id_matricula, id_fisioterapeuta, data, paciente_compareceu)
+values (
+	'5d7ec19a-740c-4c2c-8b50-5538681993a3',
+	'd7bd2afc-823c-4c89-b6fd-4995bfb31c2f', '1f0f2915-670e-4861-b048-d57062515905',
+	'2020-05-05 15:00', true
+);
+insert into Terapia (id, id_matricula, id_fisioterapeuta, data, paciente_compareceu)
+values (
+	'ca78f1c9-032d-469b-bedc-b39f24b40d27',
+	'bdefb38e-b582-49b8-a359-f52b0046f68e', '1f0f2915-670e-4861-b048-d57062515905',
+	'2020-05-08 08:25', true
+);
+insert into Terapia (id, id_matricula, id_fisioterapeuta, data, paciente_compareceu)
+values (
+	'9188e7f3-48df-4706-a330-3c84e41673bf',
+	'25a58563-59f9-49db-9048-de93721b31a1', '1f0f2915-670e-4861-b048-d57062515905',
+	'2020-05-08 07:50', false
+);
+insert into Terapia (id, id_matricula, id_fisioterapeuta, data, paciente_compareceu)
+values (
+	'533dfbf4-6d95-4a76-98a4-93603ee1c9e5',
+	'af1a40ae-01ef-4637-b937-febf092e752d', 'b7f3716e-bcce-4119-bea2-ea443be9a6cf',
+	'2020-05-09 13:30', true
+);
+
+commit;
