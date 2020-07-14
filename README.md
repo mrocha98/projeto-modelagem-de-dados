@@ -268,7 +268,7 @@ Os dados inseridos estão no [script DML.sql](https://github.com/mrocha98/projet
 -- Dados de todos os usuários
 select usr.nome, usr.sexo, date(usr.data_nasc) as data_nasc, tel.numero as telefone, concat(endr.rua, ', ', endr.numero, ' - ', endr.bairro) as endereco, cid.nome as cidade, uf.sigla as UF
 from usuario usr
-inner join telefone_por_usuario tel_p_usr	on usr.id = tel_p_usr.usuario_id
+inner join telefone_por_usuario tel_p_usr on usr.id = tel_p_usr.usuario_id
 left join telefone tel on tel.id = tel_p_usr.telefone_id
 left join endereco endr on usr.endereco_id = endr.id
 inner join cidade cid on endr.cidade_id = cid.id
@@ -330,10 +330,10 @@ inner join uf on cid.uf_id = uf.id and uf.sigla = 'SP';
 -- Mensalidades que não foram pagas
 select usr.nome as paciente, plan.nome as plano, mens.valor_solicitado, date(mens.data) as data
 from usuario usr
-inner join paciente pac	on usr.id = pac.id_usuario
+inner join paciente pac on usr.id = pac.id_usuario
 inner join matricula mat on pac.id = mat.id_paciente
 inner join plano plan on plan.id= mat.id_plano
-inner join mensalidade mens	on mens.id_matricula = mat.id and mens.paciente_pagou = false;
+inner join mensalidade mens on mens.id_matricula = mat.id and mens.paciente_pagou = false;
 
 
 -- Mensalidades da paciente Lorena Braga
@@ -373,7 +373,44 @@ inner join paciente pac on pac.id = mat.id_paciente
 inner join plano pla on pla.id = mat.id_plano
 inner join terapia ter on ter.id_matricula = mat.id
 inner join fisioterapeuta fis on fis.id = ter.id_fisioterapeuta
-inner join usuario usrPAC	on usrPAC.id = pac.id_usuario
+inner join usuario usrPAC on usrPAC.id = pac.id_usuario
 inner join usuario usrFIS on usrFIS.id = fis.id_usuario
 order by ter.data DESC;
 ```
+
+## Normalização
+
+Levando em conta o modelo lógico teórico.
+
+Critérios (lógica OU):
+
+- 1FN
+  - Não possui dependências funcionais
+  - Não possui dependências multivaloradas
+- 2FN
+  - PK com uma única coluna
+  - Não possui colunas que não fazem parte da PK
+- 3FN
+  - Não possui colunas que não fazem parte da PK
+  - Possui apenas uma única coluna que não faz parte da PK
+
+| Tabela                | 1FR | 2FR | 3FR | Comentários                                                               |
+| --------------------- | --- | --- | --- | ------------------------------------------------------------------------- |
+| UF                    | ✅  | ✅  | ✅  | Possui apenas 1 campo e é PK                                              |
+| Cidade                | ✅  | ✅  | ✅  | Todos os campos fazem parte da PK                                         |
+| Endereço              | ✅  |     |     |                                                                           |
+| Telefone              | ✅  | ✅  | ✅  | Possui apenas 1 campo e é PK                                              |
+| Telefone_Por_Usuário  | ✅  | ✅  | ✅  | Todos os campos fazem parte da PK                                         |
+| Usuário               | ✅  |     |     |                                                                           |
+| Fisioterapeuta        | ✅  |     |     |                                                                           |
+| Pagamento             | ✅  | ✅  | ✅  | Possui apenas uma única coluna que não faz parte da PK (Valor)            |
+| Paciente              | ✅  | ✅  | ✅  | Possui apenas uma única coluna que não faz parte da PK (Anamnese)         |
+| Plano                 | ✅  |     |     |                                                                           |
+| Matrícula             | ✅  |     |     |                                                                           |
+| Terapia               | ✅  |     |     |                                                                           |
+| Equipamento           | ✅  | ✅  | ✅  | Possui apenas 1 campo e é PK                                              |
+| Exercício             | ✅  | ✅  | ✅  | Possui apenas uma única coluna que não faz parte da PK (Nome_Equipamento) |
+| Terapia               | ✅  |     |     |                                                                           |
+| Exercício_Por_Terapia | ✅  | ✅  | ✅  | Todos os campos fazem parte da PK                                         |
+
+[comment]: # "✅ ❌"
