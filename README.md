@@ -394,23 +394,21 @@ Critérios (lógica OU):
   - Não possui colunas que não fazem parte da PK
   - Possui apenas uma única coluna que não faz parte da PK
 
-| Tabela                | 1FR | 2FR | 3FR | Comentários                                                               |
-| --------------------- | --- | --- | --- | ------------------------------------------------------------------------- |
-| UF                    | ✅  | ✅  | ✅  | Possui apenas 1 campo e é PK                                              |
-| Cidade                | ✅  | ✅  | ✅  | Todos os campos fazem parte da PK                                         |
-| Endereço              | ✅  |     |     |                                                                           |
-| Telefone              | ✅  | ✅  | ✅  | Possui apenas 1 campo e é PK                                              |
-| Telefone_Por_Usuário  | ✅  | ✅  | ✅  | Todos os campos fazem parte da PK                                         |
-| Usuário               | ✅  |     |     |                                                                           |
-| Fisioterapeuta        | ✅  |     |     |                                                                           |
-| Pagamento             | ✅  | ✅  | ✅  | Possui apenas uma única coluna que não faz parte da PK (Valor)            |
-| Paciente              | ✅  | ✅  | ✅  | Possui apenas uma única coluna que não faz parte da PK (Anamnese)         |
-| Plano                 | ✅  |     |     |                                                                           |
-| Matrícula             | ✅  |     |     |                                                                           |
-| Terapia               | ✅  |     |     |                                                                           |
-| Equipamento           | ✅  | ✅  | ✅  | Possui apenas 1 campo e é PK                                              |
-| Exercício             | ✅  | ✅  | ✅  | Possui apenas uma única coluna que não faz parte da PK (Nome_Equipamento) |
-| Terapia               | ✅  |     |     |                                                                           |
-| Exercício_Por_Terapia | ✅  | ✅  | ✅  | Todos os campos fazem parte da PK                                         |
-
-[comment]: # "✅ ❌"
+| Tabela                | 1FR | 2FR | 3FR | Comentários                                                                  |
+| --------------------- | --- | --- | --- | ---------------------------------------------------------------------------- |
+| UF                    | ✅  | ✅  | ✅  | Possui apenas 1 campo e é PK                                                 |
+| Cidade                | ✅  | ✅  | ✅  | Todos os campos fazem parte da PK                                            |
+| Endereço              | ✅  | ✅  | ✅  | Possui apenas uma única coluna que não faz parte da PK (Ponto_de_referência) |
+| Telefone              | ✅  | ✅  | ✅  | Possui apenas 1 campo e é PK                                                 |
+| Telefone_Por_Usuário  | ✅  | ✅  | ✅  | Todos os campos fazem parte da PK                                            |
+| Usuário               | ✅  | ✅  | ✅  |                                                                              |
+| Fisioterapeuta        | ✅  | ✅  | ✅  |                                                                              |
+| Pagamento             | ✅  | ✅  | ✅  | Possui apenas uma única coluna que não faz parte da PK (Valor)               |
+| Paciente              | ✅  | ✅  | ✅  | Possui apenas uma única coluna que não faz parte da PK (Anamnese)            |
+| Plano                 | ✅  | ✅  | ✅  |                                                                              |
+| Matrícula             | ✅  | ✅  | ✅  |                                                                              |
+| Terapia               | ✅  | ✅  | ✅  |                                                                              |
+| Equipamento           | ✅  | ✅  | ✅  | Possui apenas 1 campo e é PK                                                 |
+| Exercício             | ✅  | ✅  | ✅  | Possui apenas uma única coluna que não faz parte da PK (Nome_Equipamento)    |
+| Terapia               | ✅  | ✅  | ✅  |                                                                              |
+| Exercício_Por_Terapia | ✅  | ✅  | ✅  | Todos os campos fazem parte da PK                                            |
