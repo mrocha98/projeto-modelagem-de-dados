@@ -387,6 +387,8 @@ Critérios (lógica OU):
 - 1FN
   - Não possui dependências funcionais
   - Não possui dependências multivaloradas
+  - Não possui campos multivalorados
+  - Não possui campos compostos
 - 2FN
   - PK com uma única coluna
   - Não possui colunas que não fazem parte da PK
@@ -402,7 +404,7 @@ Critérios (lógica OU):
 | Telefone              | ✅   | ✅   | ✅   | Possui apenas 1 campo e é PK                                                 |
 | Telefone_Por_Usuário  | ✅   | ✅   | ✅   | Todos os campos fazem parte da PK                                            |
 | Usuário               | ✅   | ✅   | ✅   |                                                                              |
-| Fisioterapeuta        | ✅   | ✅   | ✅   |                                                                              |
+| Fisioterapeuta        | ✅   | ❌   | ❌   |                                                                              |
 | Pagamento             | ✅   | ✅   | ✅   | Possui apenas uma única coluna que não faz parte da PK (Valor)               |
 | Paciente              | ✅   | ✅   | ✅   | Possui apenas uma única coluna que não faz parte da PK (Anamnese)            |
 | Plano                 | ✅   | ✅   | ✅   |                                                                              |
@@ -412,3 +414,39 @@ Critérios (lógica OU):
 | Exercício             | ✅   | ✅   | ✅   | Possui apenas uma única coluna que não faz parte da PK (Nome_Equipamento)    |
 | Terapia               | ✅   | ✅   | ✅   |                                                                              |
 | Exercício_Por_Terapia | ✅   | ✅   | ✅   | Todos os campos fazem parte da PK                                            |
+
+Se em algum momento surgir a necessidade de cadastrar um novo tipo de funcionário, secretário por exemplo, teríamos que repetir os campos Data_Admissão, Data_Demissão, e Salário, além de que seria necessário criar uma tabela Pagamento exclusiva para esse novo tipo de funcionário.
+
+![não normalizado](.github/images/nao_normalizado.jpg)
+
+Para resolver esse problema, primeiro criamos a tabela Funcionário, que será responsável por armazenar as informações em comum.
+
+## 1FN
+
+Funcionário(**E-Mail_Usuário**, Data_Admissão, Data_Demissão, Cargo, Salário)
+
+Fisioterapeuta(**E-Mail_Funcionário**)
+
+Secretário(**E-Mail_Funcionário**)
+
+Essa nova tabela atende aos requisitos para estar na 1FN, todavia, não está na 2FN, pois Salário sempre repete para o mesmo cargo.
+
+## 2FN
+
+Cargo(**Nome**, Salário)
+
+Funcionário(**E-Mail_Usuário**, **Nome_Cargo**, Data_Admissão, Data_Demissão)
+
+Fisioterapeuta(**E-Mail_Funcionário**, **Nome_Cargo**)
+
+Secretário(**E-Mail_Funcionário**, **Nome_Cargo**)
+
+## 3FN
+
+Cargo já está na 3FN pois só possui uma coluna que não faz parte da PK.
+
+Fisioterapeuta e Secretário já estão na 3FN pois todos seus campos fazem parte da PK.
+
+Funcionário já está na 3FN pois os campos que não fazem parte da PK (Data_Admissão, Data_Demissão) não são referências transitivas (não dependem de campos não chave).
+
+![normalizado](.github/images/normalizado.jpg)
